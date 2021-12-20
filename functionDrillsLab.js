@@ -12,7 +12,11 @@
 */
 
 //CODE HERE
+const helloWorld = function() {
+  console.log('Hello, World!');
+}
 
+helloWorld();
 
 ////////////////// PROBLEM 2 ////////////////////
 
@@ -21,8 +25,9 @@
 */
 
 //CODE HERE
-
-
+const arrow = () => {
+  return 'I am a JavaScript ninja!';
+}
 ////////////////// PROBLEM 3 ////////////////////
 /*
   Create a function called printName which takes in a person's name and console logs it.
@@ -31,7 +36,11 @@
 */
 
 //CODE HERE
+const namer = function(name) {
+  console.log(name);
+}
 
+namer('Cole');
 
 ////////////////// PROBLEM 4 ////////////////////
 /*
@@ -45,32 +54,54 @@
 */
 
 //CODE HERE
+const greeting = function(name) {
+  console.log('Hello, ' + String(name));
+}
 
+greeting('Cole');
 
 ////////////////// PROBLEM 5 ////////////////////
 
 /*
-    Write an arrow function called 'compareNums' that takes in 2 parameters, 
-    which will be numbers. 
-    The function should return the bigger number. 
+    Write an arrow function called 'compareNums' that takes in 2 parameters,
+    which will be numbers.
+    The function should return the bigger number.
     If the numbers are the same, just return the number.
 
     Brownie points if you use a ternary statement (only spend significant time on this if you have wiggle room)
 */
 
 //CODE HERE
+const compareNums = (numOne, numTwo) => {
+  /*if (numOne >= numTwo) {
+    return numOne;
+  } else {
+    return numTwo;
+  }
+  */
+
+  return (numOne >= numTwo) ? numOne : numTwo;
+};
+
+console.log(compareNums(14, 11));
 
 
 ////////////////// PROBLEM 6 ////////////////////
 /*
-  Create a function called add that takes in two parameters 
+  Create a function called add that takes in two parameters
   Inside, convert the arguments to be numbers (just in case strings get sent in)
   The add function should RETURN the two parameters added together.
   Create a variable outside the function called 'sum' and set it equal to add invoked (called), passing in 2 arguments.
 */
 
 //CODE HERE
+const add = function(paramOne, paramTwo) {
+  return Number(paramOne) + Number(paramTwo);
+}
 
+const sum = add(5, 7);
+
+console.log(sum);
 
 ////////////////// PROBLEM 7 ////////////////////
 
@@ -84,7 +115,7 @@ const exclaim = function(str) {
 }
 
 // arrow
-// declaration
+// declaration this one
 // expression
 
 
@@ -100,7 +131,11 @@ const exclaimTwo = str => {
   return str.toUpperCase() + '!!!'
 }
 
-// arrow
+const exclaimThree = str => `${str.toUpperCase()}!!!`;
+
+console.log(exclaimThree('hello')); //HELLO!!!
+
+// arrow this one
 // declaration
 // expression
 
@@ -126,7 +161,7 @@ function exclaimFour(str) {
 
 // arrow
 // declaration
-// expression
+// expression this one
 
 
 ////////////////// PROBLEM 10 ////////////////////
@@ -139,7 +174,18 @@ function exclaimFour(str) {
 */
 
 //CODE HERE
+const nameCheck = function(name) {
+  if (name === 'Steven') {
+    return `What is up ${name}?`;
+  } else if (name === 'Bryan') {
+    return `Hey ${name}!`;
+  } else {
+    return `Cool name, ${name}`;
+  }
+}
 
+const nameGreeting = nameCheck('Haley');
+console.log(nameGreeting);
 
 ////////////////// PROBLEM 11 ////////////////////
 /*
@@ -152,7 +198,20 @@ function exclaimFour(str) {
 */
 
 //CODE HERE
+const faveColorFinder = function(color) {
+  if (color === 'red') {
+    return `${color} is a great color`;
+  } else if (color === 'green') {
+    return `${color} is a solid favorite color`;
+  } else if (color === 'black') {
+    return 'so trendy';
+  } else {
+    return 'you need to evaluate your favorite color choice';
+  }
+}
 
+let colorRating = faveColorFinder('purple');
+console.log(colorRating);
 
 ////////////////// PROBLEM 12 ////////////////////
 let namesArr = ['Cameron', 'Riley', 'Eric', 'Brenna', 'Karl']
@@ -163,7 +222,13 @@ let namesArr = ['Cameron', 'Riley', 'Eric', 'Brenna', 'Karl']
 */
 
 //CODE HERE
+const printAllNames = function(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
 
+printAllNames(namesArr);
 
 ////////////////// PROBLEM 13 ////////////////////
 /*
@@ -174,34 +239,57 @@ let namesArr = ['Cameron', 'Riley', 'Eric', 'Brenna', 'Karl']
 */
 
 //CODE HERE
+const thatsOdd = function(num) {
+  if (num % 2 === 0) {
+    return "That\'s not odd!";
+  } else {
+    return 'That is odd indeed';
+  }
+}
 
+let oddChecker = thatsOdd(13);
+console.log(oddChecker);
 
 ////////////////// PROBLEM 14 ////////////////////
 
 /*
     Write a one line arrow function called 'bestMovie' that takes in one parameter,
-    which will be a string of a movie title. 
-    The function should return the string: 'MOVEIEPARAM is the best movie ever!'. 
-    For example, if we passed in 'Sharknado', 
+    which will be a string of a movie title.
+    The function should return the string: 'MOVEIEPARAM is the best movie ever!'.
+    For example, if we passed in 'Sharknado',
     we would expect the function to return 'Sharknado is the best movie ever!'
 */
 
 //CODE HERE
-
+const bestMovie = title => `${title} is the best movie ever!`;
+console.log(bestMovie('Sharknado'));
 
 ////////////////// PROBLEM 15 ////////////////////
 let bigOrSmallArray = [1,101, 102, 2, 103, 4, 5, 6, 107]
-/* 
-  Create a function called 'bigOrSmall' that takes in one parameter, 'arr',  which will be an array of numbers. 
-  Inside of the bigOrSmall function, create a new array called 'answers'. 
-  Then, loop over the passed in arr parameter, and check to see if the number in the array is GREATER than 100. 
-  If it is, push 'big' as a string to the answers array. 
-  If the number is LESS than or EQUAL to 100, push 'small' as a string to the answers array. 
+/*
+  Create a function called 'bigOrSmall' that takes in one parameter, 'arr',  which will be an array of numbers.
+  Inside of the bigOrSmall function, create a new array called 'answers'.
+  Then, loop over the passed in arr parameter, and check to see if the number in the array is GREATER than 100.
+  If it is, push 'big' as a string to the answers array.
+  If the number is LESS than or EQUAL to 100, push 'small' as a string to the answers array.
   Return the answers array inside of the function to a variable called `arrayEvaluator`.
 */
 
 //CODE HERE
+const bigOrSmall = function(arr) {
+  let answers = [];
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[j] > 100) {
+      answers.push('big');
+    } else if (arr[j] <= 100) {
+      answers.push('small');
+    }
+  }
+  let arrayEvaluator = answers;
+  return arrayEvaluator;
+}
 
+console.log(bigOrSmall(bigOrSmallArray));
 
 ////////////////// PROBLEM 16 ////////////////////
 let contestants = ['Katniss', 'Peeta', 'Fox-face', 'Glimmer', 'Cato', 'Rue', 'Thresh', 'Clove', 'Marvel']
@@ -212,7 +300,16 @@ let loser = 'Glimmer'
 */
 
 //CODE HERE
+const theEliminator = function(arrStr, loserStr) {
+  for (let i = 0; i < arrStr.length; i++) {
+    if (arrStr[i] === loserStr) {
+      arrStr.splice(i, 1);
+    }
+  }
+  return arrStr;
+}
 
+console.log(theEliminator(contestants, loser));
 
 ////////////////// PROBLEM 17 ////////////////////
 let sampleString = "Hi, my name is Kylo."
@@ -222,18 +319,37 @@ let sampleString = "Hi, my name is Kylo."
 */
 
 //CODE HERE
+const func = function(str) {
+  console.log(str.toUpperCase());
+}
 
+func(sampleString);
 
 ////////////////// PROBLEM 18 ////////////////////
 /*
   Write a function called emailCheck that takes in
   one parameter - email.
-  Inside the function, convert the email param into 
+  Inside the function, convert the email param into
   a string and trim off any excess whitespace.
   Check to make sure the email contains an '@' symbol.
-  If it does, return 'email verified' and if doesn't, 
+  If it does, return 'email verified' and if doesn't,
   return 'must provide a valid email address'
 */
+
+const emailCheck = function(email) {
+  email = String(email);
+  email = email.trim();
+console.log(email);
+  if (email.includes('@')) {
+    return 'email verified';
+  } else {
+    return 'must provide a valid email address';
+  }
+}
+
+let tester = ('    hot@gmail.com   ');
+
+console.log(emailCheck(tester));
 
 ////////////////// PROBLEM 19 ////////////////////
 /*
@@ -242,7 +358,13 @@ let sampleString = "Hi, my name is Kylo."
 */
 
 //CODE HERE
+const coco = function(gold) {
+ let result = gold / 3;
+ return Math.floor(result);
+}
 
+let totalFrogs = coco(17);
+console.log(totalFrogs);
 
 ////////////////// PROBLEM 20 ////////////////////
 /*
@@ -259,7 +381,19 @@ let sampleArray = [0,1,2,3,4,7,5,6,8,9]
 */
 
 //CODE HERE
+const ascend = function(arrayOfNums) {
+  let result = true;
+  for (let i = 0; i < arrayOfNums.length; i++) {
+    for (let k = i + 1; k < arrayOfNums.length; k++) {
+      if (arrayOfNums[i] > arrayOfNums[k]) {
+        result = false;
+      }
+    }
+  }
+  return result;
+}
 
+console.log(ascend(sampleArray));
 
 ////////////////// PROBLEM 22 ////////////////////
 
@@ -283,13 +417,13 @@ function pond() {
 */
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = []
+let globalScope = ['duck']
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = []
+let bathroomScope = ['duck', 'rubberDuck']
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = []
+let bathtubScope = ['duck', 'sailorDuck']
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = []
+let pondScope = ['duck', 'realDuck']
